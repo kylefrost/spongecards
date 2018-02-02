@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <form method="post" action="/image" id="generateCardForm">
+        <!-- BEAM ME UP, SCOTTY! -->
+        <br>
+        {% if error %}
+        <div class="error">{{ error }}</div><br>
+        {% endif %}
+        <label id="step1">
+            Step 1: Text
+        </label><br><br>
+        <input type="text" name="topText" placeholder="Top Text" required /><br>
+        <input type="text" name="bottomText" placeholder="Bottom Text" required /><br>
+        <label for="fontColor">Font Color:</label>
+        <select name="fontColor" id="fontColorSelect" required>
+            <option value="481f0d">Dark Brown</option>
+            <option value="001c44">Dark Blue</option>
+            <option value="0900a6">Vibrant Blue</option>
+            <option value="FFFFFF">White</option>
+            <option value="000000">Black</option>
+            <option value="deff9b">Pale Green</option>
+            <option value="a9e2ed">Pale Blue</option>
+            <option value="0d3d41">Dark Teal</option>
+            <option value="f76800">Orange</option>
+            <option value="5f0c1c">Dark Red</option>
+            <option value="e0d41c">Yellow</option>
+        </select><br><br>
+        <label for="outlineCheckbox">Do you want the text outlined?</label>
+        <input type="checkbox" name="outlineCheckbox" id="outlineCheckbox" /><br><br>
+        <label for="outlineColor">Outline Color:</label>
+        <select name="outlineColor" id="outlineColorSelect" required>
+            <option value="481f0d">Dark Brown</option>
+            <option value="001c44">Dark Blue</option>
+            <option value="0900a6">Vibrant Blue</option>
+            <option value="FFFFFF">White</option>
+            <option value="000000">Black</option>
+            <option value="deff9b">Pale Green</option>
+            <option value="a9e2ed">Pale Blue</option>
+            <option value="0d3d41">Dark Teal</option>
+            <option value="f76800">Orange</option>
+            <option value="5f0c1c">Dark Red</option>
+            <option value="e0d41c">Yellow</option>
+        </select>
+        <br><br><br>
+        <label id="step2">
+            Step 2: Background
+        </label><br><br>
+        {% for f in files %}
+        <input type="radio" name="background" value="{{ f }}" id="{{ f }}" class="input-hidden" required />
+        <label for="{{ f }}">
+            <img src="{{ url_for('static', filename='backgrounds/thumbnails/' + f) }}" />
+        </label>
+        {% endfor %}
+        <br><br>
+        <input type="submit" value="Generate SpongeCard" />
+    </form>
+</center>
+<script>
+    $(document).ready(function() {
+        $("#outlineColorSelect").prop('disabled', true);
+        $("#outlineCheckbox").checked = false;
+        $("#outlineCheckbox").change(function() {
+            $("#outlineColorSelect").prop('disabled', !this.checked);
+        });
+    });
+</script>
+{% endblock %}

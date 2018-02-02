@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <form id="generatedCard">
+        <!-- BEAM ME UP, SCOTTY! -->
+        <br>
+        <label id="step1">
+            Your SpongeCard
+        </label><br><br>
+        <img id="spongecard" />
+    </form>
+</center>
+<script>
+    var background = "{{ background }}";
+    var top_text = "{{ top_text }}";
+    var bottom_text = "{{ bottom_text }}";
+    var font_color = "{{ font_color }}";
+    var should_outline = "{{ should_outline }}";
+    var outline_color = "{{ outline_color }}";
+    var spongecard = $("#spongecard");
+
+    var apiUrl = window.location.origin + "/api/create?";
+    apiUrl = apiUrl + "background=" + background;
+    apiUrl = apiUrl + "&top_text=" + top_text;
+    apiUrl = apiUrl + "&bottom_text=" + bottom_text;
+    apiUrl = apiUrl + "&font_color=" + font_color;
+    apiUrl = apiUrl + "&should_outline=" + should_outline;
+    apiUrl = apiUrl + "&outline_color=" + outline_color;
+
+    spongecard.attr('src', apiUrl);
+</script>
+{% endblock %}

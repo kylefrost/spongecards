@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,100,500");
+@font-face {
+    font-family: 'Some Time Later';
+    src: url('sometimelater/Some Time Later.otf');
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+body {
+    background-color: #E0E0E0;
+    margin: 0;
+
+    a {
+        color: #FFFFFF;
+    }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.content {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.titleBar {
+    & nav {
+        display: table;
+        color: white;
+        height: 45px;
+        left: 0;
+        line-height: 45px;
+        position: fixed;
+        right: 0;
+        table-layout: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99999;
+        background-color: #96511D;
+        text-shadow: none; 
+        -webkit-box-shadow: 0px -5px 10px 5px rgba(0,0,0,1);
+        -moz-box-shadow: 0px -5px 10px 5px rgba(0,0,0,1);
+        box-shadow: 0px -5px 10px 5px rgba(0,0,0,1);
+        
+        ul {
+            display: table-row;
+            margin: 0;
+            margin-right: 10px;
+            padding: 0;
+            
+            li {
+                display: table-cell;
+                list-style: none;
+                text-align: center;
+                width: 100px;
+                line-height: 45px;
+
+                &.titleName {
+                    float: left;
+                    line-height: 45px;
+                    width: 100vw;
+
+                    a {
+                        float: none;
+                        margin: 0;
+                        margin-left: auto;
+                        margin-right: auto;
+                        display: block;
+                        height: inherit;
+                        width: auto;
+
+                        &:hover {
+                            background-color: #96511D;
+                        }
+                    }
+                }
+    
+                a {
+                    color: #f6ff4a;
+                    display: block;
+                    padding: 10px 0;
+                    text-decoration: none;
+                    transition: background-color 0.2s;
+                    float: right;
+                    width: 100px;
+                    margin-right: 10px;
+                    font-family: 'Some Time Later';
+                    font-size: 30px;
+                    text-align: center;
+
+                    &:hover {
+                        background-color: #703c15;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 45px;
+    background-color: #96511D;
+    text-align: center;
+    display: block;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 45px;
+    color: #f6ff4a;
+    font-size: 20px;
+    -webkit-box-shadow: 0px 5px 10px 5px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 5px 10px 5px rgba(0,0,0,1);
+    box-shadow: 0px 5px 10px 5px rgba(0,0,0,1);
+
+    a {
+        text-decoration: none;
+        color: #f6ff4a;
+        font-family: 'Some Time Later';
+    }
+}
+
+#generateCardForm {
+    overflow-x: visible;
+    width: 50%;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+
+    & input:not(#outlineCheckbox), #fontColorSelect, #outlineColorSelect {
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        font-size: 20px;
+        text-align: center;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+
+        &[type="submit"] {
+            padding: 5px;
+            color: #f6ff4a;
+            font-family: 'Some Time Later';
+            font-size: 25px;
+            border-radius: 0;
+            border: dashed 5px black;
+            background-color: #96511D;
+            box-shadow: none;
+
+            &:hover {
+                background-color: #703c15;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+
+        &[type="radio"] {
+            &:checked + label>img {
+                border: 1px solid white;
+                box-shadow: 0 0 3px 3px black;
+            }
+
+            & + label>img {
+                border: 1px solid black;
+                width: 150px;
+                height: 150px;
+                transition: all 0.1s;
+            }
+        }
+    }
+}
+
+#step1, #step2 {
+    font-size: 40px;
+    font-family: 'Some Time Later';
+
+    a {
+        color: black;
+        font-family: 'Some Time Later';
+    }
+}
+
+#cardBackgroundSelectLabel {
+    font-size: 20px;
+}
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#generatedCard, #apiDocs {
+    width: 50%;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    font-family: 'Some Time Later';
+
+    ul {
+        text-align: left;
+    }
+
+    & img {
+        width: 100%;
+    }
+}
+
+.error {
+    background-color: red;
+    width: 100%;
+    color: white;
+}
+
+@media only screen and (max-width: 800px) {
+    #generatedCard, #generateCardForm {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <div id="apiDocs">
+        <label id="step1">
+            Super simple.
+        </label>
+        <br>
+        Use a GET request on /api/create with URL parameters:
+        <ul>
+            <li>
+                top_text
+                <ul>
+                    <li>
+                        Takes any string
+                    </li>
+                </ul>
+            </li>
+            <li>
+                bottom_text
+                <ul>
+                    <li>
+                        Takes any string
+                    </li>
+                </ul>
+            </li>
+            <li>
+                background
+                <ul>
+                    <li>
+                        Takes a digit 1-10 (inclusive) corresponding to the backgrounds on the create page
+                    </li>
+                </ul>
+            </li>
+            <li>
+                font_color
+                <ul>
+                    <li>
+                        Takes any 6 character HEX value
+                    </li>
+                </ul>
+            </li>
+            <li>
+                should_outline
+                <ul>
+                    <li>
+                        Takes strings "False" or "True", with Python capitalization
+                    </li>
+                </ul>
+            </li>
+            <li>
+                outline_color
+                <ul>
+                    <li>
+                        Takes any 6 character HEX value
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </form>
+</center>
+{% endblock %}
